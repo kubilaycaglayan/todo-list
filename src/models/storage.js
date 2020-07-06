@@ -17,7 +17,7 @@ const storage = function storage() {
   }
 
   function deleteProject(projectId) {
-    const confirmation = window.confirm;
+    const confirmation = window.confirm('Do you want to remove that project?');
     if (confirmation) {
       const storage = getStorage();
       storage.splice(projectId, 1);
@@ -32,7 +32,7 @@ const storage = function storage() {
   }
 
   function deleteTodo(projectId, itemId) {
-    const confirmation = window.confirm;
+    const confirmation = window.confirm('Do you want to remove that task?');
     if (confirmation) {
       const storage = getStorage();
       storage[projectId].pocket.splice(itemId, 1);
@@ -49,4 +49,7 @@ const storage = function storage() {
   };
 };
 
-export { storage as default };
+export {
+  storage as
+  default
+};
