@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/kubilaycaglayan/todo-list/issues"
   },
-  "homepage": "https://github.com/kubilaycaglayan/todo-list#readme"
+  "homepage": "https://github.com/kubilaycaglayan/todo-list#readme",
+  "devDependencies": {
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
 }
