@@ -1,5 +1,4 @@
 const storage = function storage() {
-
   function getStorage() {
     let toDoList;
     if (window.localStorage.getItem('todolist') === null) {
@@ -12,33 +11,33 @@ const storage = function storage() {
   }
 
   function addProject(newProject) {
-    let storage = getStorage();
+    const storage = getStorage();
     storage.push(newProject);
     window.localStorage.setItem('todolist', JSON.stringify(storage));
   }
 
   function deleteProject(projectId) {
     const confirmation = window.confirm;
-    if(confirmation){
-      let storage = getStorage();
-      storage.splice(projectId,1);
+    if (confirmation) {
+      const storage = getStorage();
+      storage.splice(projectId, 1);
       window.localStorage.setItem('todolist', JSON.stringify(storage));
-    }    
+    }
   }
 
   function addTodo(projectId, item) {
-    let storage = getStorage();
+    const storage = getStorage();
     storage[projectId].pocket.push(item);
     window.localStorage.setItem('todolist', JSON.stringify(storage));
   }
 
   function deleteTodo(projectId, itemId) {
     const confirmation = window.confirm;
-    if(confirmation){
-      let storage = getStorage();
-      storage[projectId].pocket.splice(itemId,1);
+    if (confirmation) {
+      const storage = getStorage();
+      storage[projectId].pocket.splice(itemId, 1);
       window.localStorage.setItem('todolist', JSON.stringify(storage));
-    }    
+    }
   }
 
   return {
@@ -47,7 +46,7 @@ const storage = function storage() {
     deleteProject,
     addTodo,
     deleteTodo,
-  }
+  };
 };
 
-export { storage };
+export { storage as default };

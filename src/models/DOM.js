@@ -1,4 +1,0 @@
-const Dom = function Dom() {
-
-    
-}
