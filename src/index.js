@@ -14,4 +14,4 @@ function createProject() {
     localStorage.addProject(newProject);
 }
     
-submitProject.addEventListener('click', addProject());
+submitProject.addEventListener('click', createProject());
