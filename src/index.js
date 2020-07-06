@@ -5,7 +5,6 @@ import firstProject from './models/defaultProject'
 console.log('Success');
 console.log(firstProject);
 
-const nameProject = document.getElementById('nameProject').value;
 const submitProject = document.getElementById('submitProject');
 
 function createProject() {
