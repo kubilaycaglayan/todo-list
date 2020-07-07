@@ -13,6 +13,7 @@ function createProjectProcedure() {
   ourStore.addProject(newProject);
   const closeModalButton = document.getElementById('closeModalButton1');
   closeModalButton.click();
+  document.getElementById("projectForm").reset();
   showProject();
 }
 
@@ -65,14 +66,27 @@ function showTodos(projectId) {
     const h5 = createElementWithInnerText('h5', 'card-title', todo.description);
     const everything = todo.notes + ' ' + todo.dueDate + ' ' + todo.priority
     const cardText = createElementWithInnerText('p', 'card-text', everything );
+    const cardFooter = createElement('footer', 'card-footer bg-transparent border-primary');
+    const editIcon = createElement('i', 'far fa-edit');
+    const trashIcon = createElement('i', 'far fa-trash-alt');    
 
+    cardFooter.appendChild(editIcon);
+    cardFooter.appendChild(trashIcon);
 
     card.appendChild(cardHeader);
     todoList.appendChild(card);
     cardBody.appendChild(h5);
     cardBody.appendChild(cardText);
     card.appendChild(cardBody);
+    card.appendChild(cardFooter);
+
+    trashIcon.addEventListener('click', deleteTodoProcedure.bind(this, projectId, index));
   });
+}
+
+function deleteTodoProcedure(projectId, index) {
+  storage().deleteTodo(projectId, index);
+  showTodos(projectId);
 }
 
 
@@ -89,6 +103,7 @@ function createTodoProcedure() {
   ourStore.addTodo(projectId, newTodo);
   const closeModalButton = document.getElementById('closeModalButton');
   closeModalButton.click();
+  document.getElementById("todoForm").reset();
   showTodos(projectId);
 }
 
