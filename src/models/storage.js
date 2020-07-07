@@ -25,17 +25,26 @@ const storage = function storage() {
     }
   }
 
-  function addTodo(projectId, item) {
+  function addTodo(projectId, newTodo) {
     const storage = getStorage();
-    storage[projectId].pocket.push(item);
+    storage[projectId].pocket.push(newTodo);
     window.localStorage.setItem('todolist', JSON.stringify(storage));
   }
 
-  function deleteTodo(projectId, itemId) {
+  function deleteTodo(projectId, todoId) {
     const confirmation = window.confirm('Do you want to remove that task?');
     if (confirmation) {
       const storage = getStorage();
-      storage[projectId].pocket.splice(itemId, 1);
+      storage[projectId].pocket.splice(todoId, 1);
+      window.localStorage.setItem('todolist', JSON.stringify(storage));
+    }
+  }
+
+  function updateTodo(projectId, todoId, editedTodo) {
+    const confirmation = window.confirm('Do you want to edit that task?');
+    if (confirmation) {
+      const storage = getStorage();
+      storage[projectId].pocket[todoId] = editedTodo;
       window.localStorage.setItem('todolist', JSON.stringify(storage));
     }
   }
@@ -46,6 +55,7 @@ const storage = function storage() {
     deleteProject,
     addTodo,
     deleteTodo,
+    updateTodo,
   };
 };
 

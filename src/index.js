@@ -81,12 +81,17 @@ function showTodos(projectId) {
     card.appendChild(cardFooter);
 
     trashIcon.addEventListener('click', deleteTodoProcedure.bind(this, projectId, index));
+    editIcon.addEventListener('click', editTodoProcedure);
   });
 }
 
 function deleteTodoProcedure(projectId, index) {
   storage().deleteTodo(projectId, index);
   showTodos(projectId);
+}
+
+function editTodoProcedure() {
+
 }
 
 
