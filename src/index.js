@@ -98,27 +98,25 @@ function showEditTodoProcedure(projectId, todoId) {
   document.getElementById('descriptionTodo').value = todo.description;
   document.getElementById('notesTodo').value = todo.notes;
   document.getElementById('dueDateTodo').value = todo.dueDate;
-  console.log(todo.priority.toLowerCase())
   const classNameOfRadioButtonShouldBeChecked = `${todo.priority.toLowerCase()}P`;
   const radioButton = document.getElementsByClassName(classNameOfRadioButtonShouldBeChecked)[0];
   radioButton.checked = true;
 }
 
-const getFormValues = function getFormValues() {
+function getFormValues() {
   const titleTodo = document.getElementById('titleTodo').value;
   const descTodo = document.getElementById('descriptionTodo').value;
   const notesTodo = document.getElementById('notesTodo').value;
   const dueDateTodo = document.getElementById('dueDateTodo').value;
   const priorityTodo = document.querySelector('input[name="priority"]:checked').value;
-  return { titleTodo, descTodo, notesTodo, dueDateTodo, priorityTodo };
-  return newTodo;
+  const todoValues = [titleTodo, descTodo, dueDateTodo, priorityTodo, notesTodo];
+  return todoValues;
 };
 
 function createTodoProcedure() {
-  console.log(getFormValues());
-  const newTodo = createToDoItem(getFormValues());
+  const todoValues = getFormValues();
+  const newTodo = createToDoItem(todoValues[0],todoValues[1],todoValues[2],todoValues[3],todoValues[4]);
   const projectId = document.getElementById('projectId').innerHTML;
-
   const ourStore = storage();
   ourStore.addTodo(projectId, newTodo);
   const closeModalButton = document.getElementById('closeModalButton');
@@ -150,7 +148,15 @@ const addTodoButton = document.getElementById('addTodoButton');
 addTodoButton.addEventListener('click', showAddTodoButton)
 
 const editTodoProcedure = function editTodoProcedure() {
-
+  const projectId = document.getElementById('projectId').innerHTML;
+  const todoValues = getFormValues();
+  const editedTodo = {title:todoValues[0], description:todoValues[1], dueDate:todoValues[2], priority:todoValues[3], notes:todoValues[4]};
+  const ourStore = storage();
+  ourStore.updateTodo(projectId, todoId, editedTodo);
+  const closeModalButton = document.getElementById('closeModalButton');
+  closeModalButton.click();
+  document.getElementById("todoForm").reset();
+  showTodos(projectId);
 };
 const editTodoButton = document.getElementById('editTodo');
 editTodoButton.addEventListener('click', editTodoProcedure);
