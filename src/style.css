@@ -1,3 +1,7 @@
 .project {
   cursor: pointer;
 }
+
+#addTodoButton {
+  display: none;
+}
