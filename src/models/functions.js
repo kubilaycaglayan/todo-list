@@ -1,5 +1,4 @@
 const functions = function functions() {
-
   const createElement = function createElement(tag, className) {
     const element = document.createElement(tag);
     element.className = className;
@@ -48,7 +47,7 @@ const functions = function functions() {
       cardCN,
       bodyCN,
       footerCN,
-      headerCN
+      headerCN,
     } = whichCardClass(todo.priority);
     const card = createElement('div', cardCN);
     card.style = 'max-width: 18rem;';
@@ -56,7 +55,7 @@ const functions = function functions() {
 
     const cardBody = createElement('div', bodyCN);
     const h5 = createElementWithInnerText('h5', 'card-title', todo.description);
-    const everything = todo.notes + ' ' + todo.dueDate + ' ' + todo.priority
+    const everything = `${todo.notes} ${todo.dueDate} ${todo.priority}`;
     const cardText = createElementWithInnerText('p', 'card-text', everything);
 
     const cardFooter = createElement('footer', footerCN);
@@ -75,17 +74,16 @@ const functions = function functions() {
     return {
       card,
       trashIcon,
-      editIcon
+      editIcon,
     };
-  }
+  };
 
   return {
     createElement,
     createElementWithInnerText,
     createCard,
-  }
-}
+  };
+};
 
 
-
-export {functions};
+export { functions };

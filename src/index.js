@@ -1,4 +1,4 @@
-import  {dom} from './models/DOM';
+import { dom } from './models/DOM';
 import './style.css';
 
 

@@ -1,24 +1,23 @@
 import {
-  functions
+  functions,
 }
-from './functions'
+  from './functions';
 import {
-  storage
+  storage,
 } from './storage';
 import {
-  events
+  events,
 } from './events';
 
 
 const dom = function dom() {
-
   function showProject() {
     const myProjects = storage().getStorage();
     const projectsOnPage = document.getElementById('projects');
     projectsOnPage.innerHTML = '';
     myProjects.forEach((project, index) => {
       const {
-        name
+        name,
       } = project;
       const projectLi = functions().createElement('li', 'project');
       const projectName = functions().createElementWithInnerText('span', 'project', name);
@@ -43,7 +42,7 @@ const dom = function dom() {
     const displayProjectName = document.getElementById('displayProjectName');
     const myProjects = storage().getStorage();
     const projectName = myProjects[projectId].name;
-    displayProjectName.innerHTML = projectName + ' ToDo´s';
+    displayProjectName.innerHTML = `${projectName} ToDo´s`;
     const projectIdField = document.getElementById('projectId');
     projectIdField.innerHTML = projectId;
     const todoList = document.getElementById('todoList');
@@ -51,7 +50,7 @@ const dom = function dom() {
     myProjects[projectId].pocket.forEach((todo, todoId) => {
       const {
         trashIcon,
-        editIcon
+        editIcon,
       } = functions().createCard(todo, todoId);
 
       trashIcon.addEventListener('click', deleteTodoProcedure.bind(this, projectId, todoId));
@@ -64,24 +63,24 @@ const dom = function dom() {
     submitTodoButton.style.display = 'none';
     const editTodoButton = document.getElementById('editTodo');
     editTodoButton.style.display = 'block';
-  }
+  };
 
   const showAddTodoButton = function showAddTodoButton() {
     const submitTodoButton = document.getElementById('submitTodo');
     submitTodoButton.style.display = 'block';
     const editTodoButton = document.getElementById('editTodo');
     editTodoButton.style.display = 'none';
-  }
+  };
 
   const deleteProjectProcedure = function deleteProjectProcedure(index) {
     storage().deleteProject(index);
     showProject();
-  };  
+  };
 
   function deleteTodoProcedure(projectId, index) {
     storage().deleteTodo(projectId, index);
     showTodos(projectId);
-  };
+  }
 
   function showEditTodoProcedure(projectId, todoId) {
     document.getElementById('addTodoButton').click();
@@ -103,24 +102,23 @@ const dom = function dom() {
 
   const submitProject = document.getElementById('submitProject');
   submitProject.onclick = function () {
-    events().createProjectProcedure()
+    events().createProjectProcedure();
   };
   const editTodoButton = document.getElementById('editTodo');
   editTodoButton.onclick = function () {
-    events().editTodoProcedure()
+    events().editTodoProcedure();
   };
   const submitTodoButton = document.getElementById('submitTodo');
   submitTodoButton.onclick = function () {
-    events().createTodoProcedure()
+    events().createTodoProcedure();
   };
 
   return {
     showProject,
     showTodos,
-  }
-
-}
+  };
+};
 
 export {
-  dom
+  dom,
 };

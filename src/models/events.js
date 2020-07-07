@@ -1,20 +1,19 @@
 import {
-  storage
+  storage,
 }
-from './storage';
+  from './storage';
 import {
-  dom
+  dom,
 }
-from './DOM';
+  from './DOM';
 import {
-  createProject
+  createProject,
 } from './projectCreator';
 import {
-  createToDoItem
+  createToDoItem,
 } from './toDoItemCreator';
 
 const events = function events() {
-
   function createProjectProcedure() {
     const nameProject = document.getElementById('nameProject').value;
     const ourStore = storage();
@@ -22,7 +21,7 @@ const events = function events() {
     ourStore.addProject(newProject);
     const closeModalButton = document.getElementById('closeModalButton1');
     closeModalButton.click();
-    document.getElementById("projectForm").reset();
+    document.getElementById('projectForm').reset();
     dom().showProject();
   }
 
@@ -34,7 +33,7 @@ const events = function events() {
     const priorityTodo = document.querySelector('input[name="priority"]:checked').value;
     const todoValues = [titleTodo, descTodo, dueDateTodo, priorityTodo, notesTodo];
     return todoValues;
-  };
+  }
 
   function createTodoProcedure() {
     const todoValues = getFormValues();
@@ -44,7 +43,7 @@ const events = function events() {
     ourStore.addTodo(projectId, newTodo);
     const closeModalButton = document.getElementById('closeModalButton');
     closeModalButton.click();
-    document.getElementById("todoForm").reset();
+    document.getElementById('todoForm').reset();
     dom().showTodos(projectId);
   }
 
@@ -57,14 +56,14 @@ const events = function events() {
       description: todoValues[1],
       dueDate: todoValues[2],
       priority: todoValues[3],
-      notes: todoValues[4]
+      notes: todoValues[4],
     };
     const ourStore = storage();
     ourStore.updateTodo(projectId, todoId, editedTodo);
     document.getElementById('todoId').innerHTML = '';
     const closeModalButton = document.getElementById('closeModalButton');
     closeModalButton.click();
-    document.getElementById("todoForm").reset();
+    document.getElementById('todoForm').reset();
     dom().showTodos(projectId);
   };
 
@@ -72,9 +71,9 @@ const events = function events() {
     editTodoProcedure,
     createTodoProcedure,
     createProjectProcedure,
-  }
-}
+  };
+};
 
 export {
-  events
+  events,
 };

@@ -1,5 +1,5 @@
 import {
-  createDefaultProject
+  createDefaultProject,
 } from './projectCreator';
 
 const storage = function storage() {
@@ -65,5 +65,5 @@ const storage = function storage() {
 };
 
 export {
-  storage
+  storage,
 };
