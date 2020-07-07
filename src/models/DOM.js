@@ -1,8 +1,13 @@
-import 
-  {functions}
- from './functions'
-import  {storage}  from './storage';
-import  {events}  from './events';
+import {
+  functions
+}
+from './functions'
+import {
+  storage
+} from './storage';
+import {
+  events
+} from './events';
 
 
 const dom = function dom() {
@@ -51,7 +56,7 @@ const dom = function dom() {
       } = functions().createCard(todo, todoId);
 
       trashIcon.addEventListener('click', deleteTodoProcedure.bind(this, projectId, todoId));
-      editIcon.addEventListener('click', events().showEditTodoProcedure.bind(this, projectId, todoId));
+      editIcon.addEventListener('click', showEditTodoProcedure.bind(this, projectId, todoId));
     });
   }
 
@@ -75,6 +80,20 @@ const dom = function dom() {
     location.reload();
   };
 
+  function showEditTodoProcedure(projectId, todoId) {
+    document.getElementById('addTodoButton').click();
+    showEditTodoButton();
+    const todoIdField = document.getElementById('todoId');
+    todoIdField.innerHTML = todoId;
+    const todo = storage().getStorage()[projectId].pocket[todoId];
+    document.getElementById('titleTodo').value = todo.title;
+    document.getElementById('descriptionTodo').value = todo.description;
+    document.getElementById('notesTodo').value = todo.notes;
+    document.getElementById('dueDateTodo').value = todo.dueDate;
+    const classNameOfRadioButtonShouldBeChecked = `${todo.priority.toLowerCase()}P`;
+    const radioButton = document.getElementsByClassName(classNameOfRadioButtonShouldBeChecked)[0];
+    radioButton.checked = true;
+  }
 
 
   function deleteTodoProcedure(projectId, index) {
@@ -83,14 +102,28 @@ const dom = function dom() {
   }
 
   const addTodoButton = document.getElementById('addTodoButton');
-  addTodoButton.addEventListener('click', showAddTodoButton)
+  addTodoButton.addEventListener('click', showAddTodoButton);
+
+  const submitProject = document.getElementById('submitProject');
+  submitProject.onclick = function () {
+    events().createProjectProcedure()
+  };
+  const editTodoButton = document.getElementById('editTodo');
+  editTodoButton.onclick = function () {
+    events().editTodoProcedure()
+  };
+  const submitTodoButton = document.getElementById('submitTodo');
+  submitTodoButton.onclick = function () {
+    events().createTodoProcedure()
+  };
 
   return {
     showProject,
-    showEditTodoButton,
     showTodos,
   }
 
 }
 
-export {dom};
+export {
+  dom
+};

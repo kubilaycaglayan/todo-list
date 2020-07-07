@@ -64,4 +64,6 @@ const storage = function storage() {
   };
 };
 
-export {storage};
+export {
+  storage
+};
