@@ -17,18 +17,16 @@
           <h2>Projects</h2>
           <ol id="projects">
           </ol>
-              <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      + Add Project +
-    </button>
-
-    <!-- Modal -->
-
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
+            + Add Project +
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Add a project to the list</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Add a ToDo to your Project</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -50,7 +48,58 @@
         </div>
         <div class="col-8 to-dos">
           <h2>To-Do's</h2>
+          <h5 id="displayProjectName"></h5>
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+            + Add ToDo +
+          </button>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Add a project to the list</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">                  
+                  <form action="javascript:void(0);">
+                    <label for="titleTodo">Title</label>
+                    <input type="text" id="titleTodo" placeholder="Add a title to the Todo">
 
+                    <label for="descriptionTodo">Description</label>
+                    <input type="text" id="descriptionTodo" placeholder="Add a description">
+
+                    <label for="notesTodo">Notes</label>
+                    <input type="text" id="notesTodo" placeholder="Add notes">
+
+                    <label for="dueDateTodo">Due Date</label>
+                    <input type="date" id="dueDateTodo">
+
+                    <div>
+                      <input type="radio" name="priority" id="priority" value="High">
+                    <label for="priority">High</label>
+                    </div>
+                    <div>
+                      <input type="radio" name="priority" id="priority" value="medium" checked>
+                      <label for="priority">Medium</label>
+                    </div>
+                    <div>
+                      <input type="radio" name="priority" id="priority" value="low">
+                      <label for="priority">Low</label>
+                    </div>
+
+                    <button type="submit" id="submitTodo" class="btn btn-primary">Add ToDo!</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="todoList"></div>
         </div>
       </div>
     </div>

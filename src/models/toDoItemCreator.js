@@ -9,4 +9,4 @@ const createToDoItem = function createToDoItem(title, description, dueDate, prio
   };
 };
 
-export { createToDoItem as default };
+export default createToDoItem;
