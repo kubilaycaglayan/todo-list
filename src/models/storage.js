@@ -1,9 +1,12 @@
+import { createDefaultProject } from './projectCreator';
+
 const storage = function storage() {
   function getStorage() {
     let toDoList;
     if (window.localStorage.getItem('todolist') === null) {
       toDoList = [];
       window.localStorage.setItem('todolist', JSON.stringify(toDoList));
+      createDefaultProject();
     } else {
       toDoList = JSON.parse(window.localStorage.getItem('todolist'));
     }
