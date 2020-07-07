@@ -69,6 +69,7 @@ function showTodos(projectId) {
     const cardFooter = createElement('footer', 'card-footer bg-transparent border-primary');
     const editIcon = createElement('i', 'far fa-edit');
     const trashIcon = createElement('i', 'far fa-trash-alt');
+    const todoIdField = document.getElementById('todoId');
 
     cardFooter.appendChild(editIcon);
     cardFooter.appendChild(trashIcon);
@@ -82,6 +83,7 @@ function showTodos(projectId) {
 
     trashIcon.addEventListener('click', deleteTodoProcedure.bind(this, projectId, todoId));
     editIcon.addEventListener('click', showEditTodoProcedure.bind(this, projectId, todoId));
+    
   });
 }
 
@@ -93,6 +95,8 @@ function deleteTodoProcedure(projectId, index) {
 function showEditTodoProcedure(projectId, todoId) {
   document.getElementById('addTodoButton').click();
   showEditTodoButton();
+  const todoIdField = document.getElementById('todoId');
+  todoIdField.innerHTML = todoId;
   const todo = storage().getStorage()[projectId].pocket[todoId];
   document.getElementById('titleTodo').value = todo.title;
   document.getElementById('descriptionTodo').value = todo.description;
@@ -149,15 +153,17 @@ addTodoButton.addEventListener('click', showAddTodoButton)
 
 const editTodoProcedure = function editTodoProcedure() {
   const projectId = document.getElementById('projectId').innerHTML;
+  const todoId = document.getElementById('todoId').innerHTML;
   const todoValues = getFormValues();
   const editedTodo = {title:todoValues[0], description:todoValues[1], dueDate:todoValues[2], priority:todoValues[3], notes:todoValues[4]};
   const ourStore = storage();
   ourStore.updateTodo(projectId, todoId, editedTodo);
+  document.getElementById('todoId').innerHTML = '';
   const closeModalButton = document.getElementById('closeModalButton');
   closeModalButton.click();
   document.getElementById("todoForm").reset();
   showTodos(projectId);
 };
+
 const editTodoButton = document.getElementById('editTodo');
 editTodoButton.addEventListener('click', editTodoProcedure);
-
