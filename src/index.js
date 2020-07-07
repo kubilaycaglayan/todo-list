@@ -1,7 +1,7 @@
 import storage from './models/storage';
 import createToDoItem from './models/toDoItemCreator';
 import createProject from './models/projectCreator';
-import { createElement, createElementWithInnerText } from './models/functions';
+import { createElement, createElementWithInnerText, createCard } from './models/functions';
 import './style.css';
 
 const submitProject = document.getElementById('submitProject');
@@ -58,32 +58,12 @@ function showTodos(projectId) {
   const projectIdField = document.getElementById('projectId');
   projectIdField.innerHTML = projectId;
   const todoList = document.getElementById('todoList');
+
   myProjects[projectId].pocket.forEach((todo, todoId)=>{
-    const card = createElement('div', 'card border-primary mb-3');
-    card.style = 'max-width: 18rem;';
-    const cardHeader = createElementWithInnerText('div', 'card-header', todo.title);
-    const cardBody = createElement('div', 'card-body text-primary');
-    const h5 = createElementWithInnerText('h5', 'card-title', todo.description);
-    const everything = todo.notes + ' ' + todo.dueDate + ' ' + todo.priority
-    const cardText = createElementWithInnerText('p', 'card-text', everything );
-    const cardFooter = createElement('footer', 'card-footer bg-transparent border-primary');
-    const editIcon = createElement('i', 'far fa-edit');
-    const trashIcon = createElement('i', 'far fa-trash-alt');
-    const todoIdField = document.getElementById('todoId');
-
-    cardFooter.appendChild(editIcon);
-    cardFooter.appendChild(trashIcon);
-
-    card.appendChild(cardHeader);
-    todoList.appendChild(card);
-    cardBody.appendChild(h5);
-    cardBody.appendChild(cardText);
-    card.appendChild(cardBody);
-    card.appendChild(cardFooter);
+    const { trashIcon, editIcon } = createCard(todo, todoId);
 
     trashIcon.addEventListener('click', deleteTodoProcedure.bind(this, projectId, todoId));
     editIcon.addEventListener('click', showEditTodoProcedure.bind(this, projectId, todoId));
-    
   });
 }
 
