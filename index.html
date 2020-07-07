@@ -49,8 +49,12 @@
         <div class="col-8 to-dos">
           <h2>To-Do's</h2>
           <h5 id="displayProjectName"></h5>
+          <div class="d-none" id="projectId"></div>
+          <div id="todoList">
+
+          </div>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          <button id="addTodoButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             + Add ToDo +
           </button>
           <!-- Modal -->
@@ -63,7 +67,7 @@
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">                  
+                <div class="modal-body">
                   <form action="javascript:void(0);">
                     <label for="titleTodo">Title</label>
                     <input type="text" id="titleTodo" placeholder="Add a title to the Todo">
@@ -99,7 +103,7 @@
               </div>
             </div>
           </div>
-          <div id="todoList"></div>
+
         </div>
       </div>
     </div>
