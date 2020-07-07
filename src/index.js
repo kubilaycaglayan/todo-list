@@ -58,7 +58,7 @@ function showTodos(projectId) {
   const projectIdField = document.getElementById('projectId');
   projectIdField.innerHTML = projectId;
   const todoList = document.getElementById('todoList');
-  myProjects[projectId].pocket.forEach((todo, index)=>{
+  myProjects[projectId].pocket.forEach((todo, todoId)=>{
     const card = createElement('div', 'card border-primary mb-3');
     card.style = 'max-width: 18rem;';
     const cardHeader = createElementWithInnerText('div', 'card-header', todo.title);
@@ -68,7 +68,7 @@ function showTodos(projectId) {
     const cardText = createElementWithInnerText('p', 'card-text', everything );
     const cardFooter = createElement('footer', 'card-footer bg-transparent border-primary');
     const editIcon = createElement('i', 'far fa-edit');
-    const trashIcon = createElement('i', 'far fa-trash-alt');    
+    const trashIcon = createElement('i', 'far fa-trash-alt');
 
     cardFooter.appendChild(editIcon);
     cardFooter.appendChild(trashIcon);
@@ -80,8 +80,8 @@ function showTodos(projectId) {
     card.appendChild(cardBody);
     card.appendChild(cardFooter);
 
-    trashIcon.addEventListener('click', deleteTodoProcedure.bind(this, projectId, index));
-    editIcon.addEventListener('click', editTodoProcedure);
+    trashIcon.addEventListener('click', deleteTodoProcedure.bind(this, projectId, todoId));
+    editIcon.addEventListener('click', editTodoProcedure.bind(this, projectId, todoId));
   });
 }
 
@@ -90,8 +90,19 @@ function deleteTodoProcedure(projectId, index) {
   showTodos(projectId);
 }
 
-function editTodoProcedure() {
+function editTodoProcedure(projectId, todoId) {
+  document.getElementById('addTodoButton').click();
+  showEditTodoButton();
+  const todo = storage().getStorage()[projectId].pocket[todoId];
 
+  document.getElementById('titleTodo').value = todo.title;
+  document.getElementById('descriptionTodo').value = todo.description;
+  document.getElementById('notesTodo').value = todo.notes;
+  document.getElementById('dueDateTodo').value = todo.dueDate;
+  console.log(todo.priority.toLowerCase())
+  const classNameOfRadioButtonShouldBeChecked = `${todo.priority.toLowerCase()}P`;
+  const radioButton = document.getElementsByClassName(classNameOfRadioButtonShouldBeChecked)[0];
+  radioButton.checked = true;
 }
 
 
@@ -117,3 +128,19 @@ showProject();
 const submitTodoButton = document.getElementById('submitTodo');
 submitTodoButton.addEventListener('click', createTodoProcedure);
 
+const showEditTodoButton = function showEditTodoButton () {
+  const submitTodoButton = document.getElementById('submitTodo');
+  submitTodoButton.style.display = 'none';
+  const editTodoButton = document.getElementById('editTodo');
+  editTodoButton.style.display = 'block';
+}
+
+const showAddTodoButton = function showAddTodoButton () {
+  const submitTodoButton = document.getElementById('submitTodo');
+  submitTodoButton.style.display = 'block';
+  const editTodoButton = document.getElementById('editTodo');
+  editTodoButton.style.display = 'none';
+}
+
+const addTodoButton = document.getElementById('addTodoButton');
+addTodoButton.addEventListener('click', showAddTodoButton)

@@ -77,19 +77,20 @@
                     <input type="date" id="dueDateTodo">
 
                     <div>
-                      <input type="radio" name="priority" id="priority" value="High">
+                      <input class="highP" type="radio" name="priority" id="priority" value="High">
                     <label for="priority">High</label>
                     </div>
                     <div>
-                      <input type="radio" name="priority" id="priority" value="medium" checked>
+                      <input class="mediumP" type="radio" name="priority" id="priority" value="medium" checked>
                       <label for="priority">Medium</label>
                     </div>
                     <div>
-                      <input type="radio" name="priority" id="priority" value="low">
+                      <input class="lowP" type="radio" name="priority" id="priority" value="low">
                       <label for="priority">Low</label>
                     </div>
 
                     <button type="submit" id="submitTodo" class="btn btn-primary">Add ToDo!</button>
+                    <button type="submit" id="editTodo" class="btn btn-primary">Edit ToDo!</button>
                   </form>
                 </div>
                 <div class="modal-footer">
