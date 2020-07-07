@@ -81,7 +81,7 @@ function showTodos(projectId) {
     card.appendChild(cardFooter);
 
     trashIcon.addEventListener('click', deleteTodoProcedure.bind(this, projectId, todoId));
-    editIcon.addEventListener('click', editTodoProcedure.bind(this, projectId, todoId));
+    editIcon.addEventListener('click', showEditTodoProcedure.bind(this, projectId, todoId));
   });
 }
 
@@ -90,11 +90,10 @@ function deleteTodoProcedure(projectId, index) {
   showTodos(projectId);
 }
 
-function editTodoProcedure(projectId, todoId) {
+function showEditTodoProcedure(projectId, todoId) {
   document.getElementById('addTodoButton').click();
   showEditTodoButton();
   const todo = storage().getStorage()[projectId].pocket[todoId];
-
   document.getElementById('titleTodo').value = todo.title;
   document.getElementById('descriptionTodo').value = todo.description;
   document.getElementById('notesTodo').value = todo.notes;
@@ -105,16 +104,21 @@ function editTodoProcedure(projectId, todoId) {
   radioButton.checked = true;
 }
 
-
-function createTodoProcedure() {
+const getFormValues = function getFormValues() {
   const titleTodo = document.getElementById('titleTodo').value;
   const descTodo = document.getElementById('descriptionTodo').value;
   const notesTodo = document.getElementById('notesTodo').value;
   const dueDateTodo = document.getElementById('dueDateTodo').value;
   const priorityTodo = document.querySelector('input[name="priority"]:checked').value;
+  return { titleTodo, descTodo, notesTodo, dueDateTodo, priorityTodo };
+  return newTodo;
+};
+
+function createTodoProcedure() {
+  console.log(getFormValues());
+  const newTodo = createToDoItem(getFormValues());
   const projectId = document.getElementById('projectId').innerHTML;
 
-  const newTodo = createToDoItem(titleTodo, descTodo, dueDateTodo, priorityTodo, notesTodo);
   const ourStore = storage();
   ourStore.addTodo(projectId, newTodo);
   const closeModalButton = document.getElementById('closeModalButton');
@@ -144,3 +148,10 @@ const showAddTodoButton = function showAddTodoButton () {
 
 const addTodoButton = document.getElementById('addTodoButton');
 addTodoButton.addEventListener('click', showAddTodoButton)
+
+const editTodoProcedure = function editTodoProcedure() {
+
+};
+const editTodoButton = document.getElementById('editTodo');
+editTodoButton.addEventListener('click', editTodoProcedure);
+
