@@ -13,7 +13,6 @@ import {
 const dom = function dom() {
 
   function showProject() {
-
     const myProjects = storage().getStorage();
     const projectsOnPage = document.getElementById('projects');
     projectsOnPage.innerHTML = '';
@@ -74,10 +73,14 @@ const dom = function dom() {
     editTodoButton.style.display = 'none';
   }
 
-
   const deleteProjectProcedure = function deleteProjectProcedure(index) {
     storage().deleteProject(index);
-    location.reload();
+    showProject();
+  };  
+
+  function deleteTodoProcedure(projectId, index) {
+    storage().deleteTodo(projectId, index);
+    showTodos(projectId);
   };
 
   function showEditTodoProcedure(projectId, todoId) {
@@ -93,12 +96,6 @@ const dom = function dom() {
     const classNameOfRadioButtonShouldBeChecked = `${todo.priority.toLowerCase()}P`;
     const radioButton = document.getElementsByClassName(classNameOfRadioButtonShouldBeChecked)[0];
     radioButton.checked = true;
-  }
-
-
-  function deleteTodoProcedure(projectId, index) {
-    storage().deleteTodo(projectId, index);
-    showTodos(projectId);
   }
 
   const addTodoButton = document.getElementById('addTodoButton');

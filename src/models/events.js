@@ -26,9 +26,6 @@ const events = function events() {
     dom().showProject();
   }
 
-
-
-
   function getFormValues() {
     const titleTodo = document.getElementById('titleTodo').value;
     const descTodo = document.getElementById('descriptionTodo').value;
