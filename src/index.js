@@ -11,7 +11,9 @@ function createProjectProcedure() {
   const ourStore = storage();
   const newProject = createProject(nameProject);
   ourStore.addProject(newProject);
-  location.reload();
+  const closeModalButton = document.getElementById('closeModalButton1');
+  closeModalButton.click();
+  showProject();
 }
 
 submitProject.addEventListener('click', createProjectProcedure);
@@ -22,9 +24,10 @@ const deleteProjectProcedure = function deleteProjectProcedure(index) {
 };
 
 function showProject() {
+
   const myProjects = storage().getStorage();
   const projectsOnPage = document.getElementById('projects');
-
+  projectsOnPage.innerHTML = '';
   myProjects.forEach((project, index) => {
     const { name } = project;
     const projectLi = createElement('li', 'project');
@@ -84,9 +87,13 @@ function createTodoProcedure() {
   const newTodo = createToDoItem(titleTodo, descTodo, dueDateTodo, priorityTodo, notesTodo);
   const ourStore = storage();
   ourStore.addTodo(projectId, newTodo);
+  const closeModalButton = document.getElementById('closeModalButton');
+  closeModalButton.click();
+  showTodos(projectId);
 }
 
 showProject();
 
 const submitTodoButton = document.getElementById('submitTodo');
 submitTodoButton.addEventListener('click', createTodoProcedure);
+

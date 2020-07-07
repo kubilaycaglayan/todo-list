@@ -9,14 +9,11 @@
 </head>
 <body>
   <main>
-
-
     <div class="container-fluid">
       <div class="row">
         <div class="col-4 projects border border-dark">
           <h2>Projects</h2>
-          <ol id="projects">
-          </ol>
+          <ol id="projects"></ol>
           <!-- Button trigger modal -->
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
             + Add Project +
@@ -27,7 +24,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Add a ToDo to your Project</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" id="closeModalButton1" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
@@ -50,9 +47,7 @@
           <h2>To-Do's</h2>
           <h5 id="displayProjectName"></h5>
           <div class="d-none" id="projectId"></div>
-          <div id="todoList">
-
-          </div>
+          <div id="todoList"></div>
           <!-- Button trigger modal -->
           <button id="addTodoButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
             + Add ToDo +
@@ -63,7 +58,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel">Add a project to the list</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <button type="button" id="closeModalButton" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
