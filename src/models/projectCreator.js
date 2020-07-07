@@ -1,4 +1,4 @@
-import storage from './storage';
+import {storage} from './storage';
 
 const createProject = function createProject(name, pocket = []) {
   return {

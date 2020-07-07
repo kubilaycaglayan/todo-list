@@ -1,4 +1,6 @@
-import { createDefaultProject } from './projectCreator';
+import {
+  createDefaultProject
+} from './projectCreator';
 
 const storage = function storage() {
   function getStorage() {
@@ -62,7 +64,4 @@ const storage = function storage() {
   };
 };
 
-export {
-  storage as
-  default
-};
+export {storage};
