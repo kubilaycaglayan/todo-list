@@ -7,33 +7,36 @@
   <script src="https://kit.fontawesome.com/2c6133bcaa.js" crossorigin="anonymous"></script>
   <title>Todo List</title>
 </head>
-<body>
-  <main>
+<body class="bg-dark">
+  <main class="bg-dark">
+    <div class="text-center p-5 bg-dark text-white-50"><h1>YOUR ToDo LIST</h1></div>
     <div class="container-fluid">
       <div class="row">
         <div class="col-4 projects border border-dark">
-          <h2>Projects</h2>
-          <ol id="projects"></ol>
+          <h2 class="text-center p-2 bg-dark text-white-50">Projects</h2>
+          <ol id="projects" class="list-group w-75 m-auto"></ol>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">
-            + Add Project +
-          </button>
+          <div class="text-center mt-3">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal2">
+              + Add Project +
+            </button>
+        </div>
           <!-- Modal -->
           <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Add a Name to your Project</h5>
+                  <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">Add a Name to your Project</h5>
                   <button type="button" id="closeModalButton1" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
                   <form id="projectForm" action="javascript:void(0);">
-                    <label for="nameProject"></label>
+                    <label for="nameProject" class="font-weight-bold">Project Name</label><br>
                     <input type="text" id="nameProject" placeholder="Add a name to the project">
 
-                    <button type="submit" id="submitProject" class="btn btn-primary">Add Project!</button>
+                    <button type="submit" id="submitProject" class="btn btn-secondary">Add Project!</button>
                   </form>
                 </div>
                 <div class="modal-footer">
@@ -44,54 +47,58 @@
           </div>
         </div>
         <div class="col-8 to-dos">
-          <h2>To-Do's</h2>
-          <h5 id="displayProjectName"></h5>
+          <h2 class="text-center p-2 bg-dark text-white-50">To-Do's</h2>
+          <h5 id="displayProjectName" class="text-center p-2 bg-dark text-white-50"></h5>
           <div class="d-none" id="projectId"></div>
-          <div class="d-none" id="todoId"></div>
-          <div id="todoList"></div>
+          <div class="d-none" id="todoId"></div>          
+          <div class="row" id="todoList">
+          </div>
           <!-- Button trigger modal -->
-          <button id="addTodoButton" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            + Add ToDo +
-          </button>
+          <div class="mb-2">
+            <button id="addTodoButton" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+              + Add ToDo +
+            </button>
+          </div>
           <!-- Modal -->
           <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Add a project to the list</h5>
+                  <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">Add a project to the list</h5>
                   <button type="button" id="closeModalButton" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
                   <form id="todoForm" action="javascript:void(0);">
-                    <label for="titleTodo">Title</label>
-                    <input type="text" id="titleTodo" placeholder="Add a title to the Todo">
+                    <label for="titleTodo" class="font-weight-bold">Title</label>
+                    <input type="text" id="titleTodo" placeholder="Add a title to the Todo" class="form-control" >
 
-                    <label for="descriptionTodo">Description</label>
-                    <input type="text" id="descriptionTodo" placeholder="Add a description">
+                    <label for="descriptionTodo" class="font-weight-bold">Description</label>
+                    <input type="text" id="descriptionTodo" placeholder="Add a description" class="form-control" >
 
-                    <label for="notesTodo">Notes</label>
-                    <input type="text" id="notesTodo" placeholder="Add notes">
+                    <label for="notesTodo" class="font-weight-bold">Notes</label>
+                    <input type="text" id="notesTodo" placeholder="Add notes" class="form-control" >
 
-                    <label for="dueDateTodo">Due Date</label>
-                    <input type="date" id="dueDateTodo">
+                    <label for="dueDateTodo" class="font-weight-bold">Due Date</label>
+                    <input type="date" id="dueDateTodo" class="form-control w-50 mr-auto" >
 
-                    <div>
-                      <input class="highP" type="radio" name="priority" id="priority" value="high">
-                    <label for="priority">High</label>
+                    <legend class="col-form-label font-weight-bold">Priority</legend>
+                    <div class="form-check form-check-inline">
+                      <input class="highP form-check-input" type="radio" name="priority" id="priority" value="high">
+                    <label for="priority" class="form-check-label">High</label>
                     </div>
-                    <div>
-                      <input class="mediumP" type="radio" name="priority" id="priority" value="medium" checked>
-                      <label for="priority">Medium</label>
+                    <div class="form-check form-check-inline">
+                      <input class="mediumP form-check-input" type="radio" name="priority" id="priority" value="medium" checked>
+                      <label for="priority" class="form-check-label">Medium</label>
                     </div>
-                    <div>
-                      <input class="lowP" type="radio" name="priority" id="priority" value="low">
-                      <label for="priority">Low</label>
+                    <div class="form-check form-check-inline">
+                      <input class="lowP form-check-input" type="radio" name="priority" id="priority" value="low">
+                      <label for="priority" class="form-check-label">Low</label>
                     </div>
 
-                    <button type="submit" id="submitTodo" class="btn btn-primary">Add ToDo!</button>
-                    <button type="submit" id="editTodo" class="btn btn-primary">Edit ToDo!</button>
+                    <button type="submit" id="submitTodo" class="btn btn-secondary mt-2">Add ToDo!</button>
+                    <button type="submit" id="editTodo" class="btn btn-secondary mt-2">Edit ToDo!</button>
                   </form>
                 </div>
                 <div class="modal-footer">
