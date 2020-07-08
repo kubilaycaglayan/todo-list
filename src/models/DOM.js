@@ -101,7 +101,7 @@ const dom = function dom() {
   }
 
   const addTodoButton = document.getElementById('addTodoButton');
-  addTodoButton.addEventListener('click', showAddTodoButton);
+  addTodoButton.addEventListener('click', () => { document.getElementById('todoForm').reset(); showAddTodoButton(); });
 
   const submitProject = document.getElementById('submitProject');
   submitProject.onclick = function () {
