@@ -47,7 +47,7 @@ Additional description about the project and its features.
 
 ### Usage
 
-- Click the Live Demo link and enjoy our playing Tic Tac Toe.
+- Click the Live Demo link and add Projects and Tasks to each project.
 
 ### Prerequisites
 
