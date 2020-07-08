@@ -19,7 +19,7 @@ const dom = function dom() {
       const {
         name,
       } = project;
-      const projectLi = functions().createElement('li', 'project');
+      const projectLi = functions().createElement('li', 'project list-group-item list-group-item-secondary text-center d-flex justify-content-between');
       const projectName = functions().createElementWithInnerText('span', 'project', name);
       const trashIcon = functions().createElement('i', 'far fa-trash-alt');
       projectLi.appendChild(projectName);
