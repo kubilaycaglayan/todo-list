@@ -21,9 +21,13 @@
 
 # To-Do List
 
-> Application built with JavaScript and Webpack where a user can add projects and tasks to those projects.
+> An application built with JavaScript and Webpack where a user can add projects and track all the tasks of those projects.
 
-![screenshot]()
+Main Section
+![screenshot](.assets/screenshot.png)
+
+Modal to add ToDo´s
+![screenshot](.assets/screenshot2.png)
 
 Additional description about the project and its features.
 
