@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable no-undef */
 const functions = function functions() {
   const createElement = function createElement(tag, className) {
     const element = document.createElement(tag);
@@ -48,6 +50,7 @@ const functions = function functions() {
     return classNames;
   };
 
+  // eslint-disable-next-line no-unused-vars
   const createCard = function createCard(todo, todoId) {
     const {
       cardCN,

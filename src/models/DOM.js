@@ -1,3 +1,7 @@
+/* eslint-disable func-names */
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable no-use-before-define */
+/* eslint-disable import/no-cycle */
 import {
   functions,
 }
@@ -45,7 +49,6 @@ const dom = function dom() {
     displayProjectName.innerHTML = `${projectName} ToDo´s`;
     const projectIdField = document.getElementById('projectId');
     projectIdField.innerHTML = projectId;
-    const todoList = document.getElementById('todoList');
 
     myProjects[projectId].pocket.forEach((todo, todoId) => {
       const {

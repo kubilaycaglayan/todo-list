@@ -1,3 +1,6 @@
+/* eslint-disable no-alert */
+/* eslint-disable import/prefer-default-export */
+// eslint-disable-next-line import/no-cycle
 import {
   createDefaultProject,
 } from './projectCreator';
