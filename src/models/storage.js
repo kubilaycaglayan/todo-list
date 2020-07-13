@@ -2,8 +2,8 @@
 /* eslint-disable import/prefer-default-export */
 // eslint-disable-next-line import/no-cycle
 import {
-  createDefaultProject,
-} from './projectCreator';
+  events,
+} from './events';
 
 const storage = function storage() {
   function getStorage() {
@@ -11,7 +11,7 @@ const storage = function storage() {
     if (window.localStorage.getItem('todolist') === null) {
       toDoList = [];
       window.localStorage.setItem('todolist', JSON.stringify(toDoList));
-      createDefaultProject();
+      events().createDefaultProject();
     } else {
       toDoList = JSON.parse(window.localStorage.getItem('todolist'));
     }

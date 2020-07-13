@@ -28,7 +28,6 @@ const dom = function dom() {
       const trashIcon = functions().createElement('i', 'far fa-trash-alt');
       projectLi.appendChild(projectName);
       projectLi.appendChild(trashIcon);
-
       projectsOnPage.appendChild(projectLi);
       projectName.addEventListener('click', showTodos.bind(this, index));
       trashIcon.addEventListener('click', deleteProjectProcedure.bind(this, index));

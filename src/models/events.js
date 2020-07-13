@@ -9,9 +9,7 @@ import {
   dom,
 }
   from './DOM';
-import {
-  createProject,
-} from './projectCreator';
+import createProject from './projectCreator';
 import {
   createToDoItem,
 } from './toDoItemCreator';
@@ -70,10 +68,20 @@ const events = function events() {
     dom().showTodos(projectId);
   };
 
+  const createDefaultProject = function createDefaultProject() {
+    const newProject = createProject('Default Project');
+    const ourStore = storage();
+    ourStore.addProject(newProject);
+    // eslint-disable-next-line no-restricted-globals
+    location.reload();
+    document.getElementById('projectForm').reset();
+  };
+
   return {
     editTodoProcedure,
     createTodoProcedure,
     createProjectProcedure,
+    createDefaultProject,
   };
 };
 
