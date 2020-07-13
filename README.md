@@ -13,11 +13,11 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url] 
-[![Forks][forks-shield]][forks-url] 
-[![Stargazers][stars-shield]][stars-url] 
-[![Issues][issues-shield]][issues-url] 
-![Hireable](https://cdn.rawgit.com/hiendv/hireable/master/styles/default/yes.svg) 
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![Issues][issues-shield]][issues-url]
+![Hireable](https://cdn.rawgit.com/hiendv/hireable/master/styles/default/yes.svg)
 
 # To-Do List
 
@@ -33,7 +33,7 @@ Additional description about the project and its features.
 
 ## Built With
 
-- HTML 
+- HTML
 - CSS
 - JAVASCRIPT
 - WEBPACK
@@ -41,7 +41,7 @@ Additional description about the project and its features.
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://raw.githack.com/kubilaycaglayan/todo-list/todo_list/dist/index.html)
 
 ## Getting Started
 
@@ -63,10 +63,10 @@ Additional description about the project and its features.
 
 ## Authors
 
-👤 Javier Oriol Correas Sanchez Cuesta 
-- Github: [@javitocor](https://github.com/javitocor) 
-- Twitter: [@JavierCorreas4](https://twitter.com/JavierCorreas4) 
-- Linkedin: [Javier Oriol Correas Sanchez Cuesta](https://www.linkedin.com/in/javier-correas-sanchez-cuesta-15289482/) 
+👤 Javier Oriol Correas Sanchez Cuesta
+- Github: [@javitocor](https://github.com/javitocor)
+- Twitter: [@JavierCorreas4](https://twitter.com/JavierCorreas4)
+- Linkedin: [Javier Oriol Correas Sanchez Cuesta](https://www.linkedin.com/in/javier-correas-sanchez-cuesta-15289482/)
 
 👤 **Kubilay Caglayan**
 
