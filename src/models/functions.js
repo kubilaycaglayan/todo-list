@@ -51,7 +51,7 @@ const functions = function functions() {
   };
 
   // eslint-disable-next-line no-unused-vars
-  const createCard = function createCard(todo, todoId) {
+  const createCard = function createCard(todo) {
     const {
       cardCN,
       bodyCN,
@@ -67,7 +67,7 @@ const functions = function functions() {
 
     const cardBody = createElement('div', bodyCN);
     const h5 = createElementWithInnerText('h5', 'card-title', todo.description);
-    const everything = `${todo.notes} ${todo.dueDate} ${todo.priority}`;
+    const everything = `${todo.notes} ${todo.dueDate}`;
     const cardText = createElementWithInnerText('p', 'card-text', everything);
 
     const cardFooter = createElement('footer', footerCN);

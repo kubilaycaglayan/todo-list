@@ -38,6 +38,10 @@ const dom = function dom() {
   function cleanTodoList() {
     const toDoList = document.getElementById('todoList');
     toDoList.innerHTML = '';
+    const displayProjectName = document.getElementById('displayProjectName');
+    displayProjectName.innerHTML = '';
+    const addTodoButton = document.getElementById('addTodoButton');
+    addTodoButton.style.display = 'none';
   }
 
   function showTodos(projectId) {
@@ -54,7 +58,7 @@ const dom = function dom() {
       const {
         trashIcon,
         editIcon,
-      } = functions().createCard(todo, todoId);
+      } = functions().createCard(todo);
 
       trashIcon.addEventListener('click', deleteTodoProcedure.bind(this, projectId, todoId));
       editIcon.addEventListener('click', showEditTodoProcedure.bind(this, projectId, todoId));
@@ -77,6 +81,7 @@ const dom = function dom() {
 
   const deleteProjectProcedure = function deleteProjectProcedure(index) {
     storage().deleteProject(index);
+    cleanTodoList();
     showProject();
   };
 
