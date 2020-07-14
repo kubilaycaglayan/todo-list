@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/2c6133bcaa.js" crossorigin="anonymous"></script>
+  <title>Todo List</title>
+</head>
+<body class="bg-dark">
+  <main class="bg-dark">
+    <div class="text-center p-5 bg-dark text-white-50"><h1>YOUR ToDo LIST</h1></div>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-4 projects border border-dark">
+          <h2 class="text-center p-2 bg-dark text-white-50">Projects</h2>
+          <ol id="projects" class="list-group w-75 m-auto"></ol>
+          <!-- Button trigger modal -->
+          <div class="text-center mt-3">
+            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal2">
+              + Add Project +
+            </button>
+        </div>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">Add a Name to your Project</h5>
+                  <button type="button" id="closeModalButton1" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="projectForm" action="javascript:void(0);">
+                    <label for="nameProject" class="font-weight-bold">Project Name</label><br>
+                    <input type="text" id="nameProject" placeholder="Add a name to the project" required>
+
+                    <button type="submit" id="submitProject" class="btn btn-secondary">Add Project!</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-8 to-dos">
+          <h2 class="p-2 bg-dark text-white-50">To-Do's</h2>
+          <h4 id="displayProjectName" class="text-center p-2 bg-dark text-white-50"></h5>
+          <div class="d-none" id="projectId"></div>
+          <div class="d-none" id="todoId"></div>          
+          <div class="row" id="todoList">
+          </div>
+          <!-- Button trigger modal -->
+          <div class="mb-2">
+            <button id="addTodoButton" type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+              + Add ToDo +
+            </button>
+          </div>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title font-weight-bolder" id="exampleModalLabel">Add a ToDo to the Project</h5>
+                  <button type="button" id="closeModalButton" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form id="todoForm" action="javascript:void(0);">
+                    <label for="titleTodo" class="font-weight-bold">Title</label>
+                    <input type="text" id="titleTodo" placeholder="Add a title to the Todo" class="form-control" required>
+
+                    <label for="descriptionTodo" class="font-weight-bold">Description</label>
+                    <input type="text" id="descriptionTodo" placeholder="Add a description" class="form-control" required>
+
+                    <label for="notesTodo" class="font-weight-bold">Notes</label>
+                    <input type="text" id="notesTodo" placeholder="Add notes" class="form-control" required>
+
+                    <label for="dueDateTodo" class="font-weight-bold">Due Date</label>
+                    <input type="date" id="dueDateTodo" class="form-control w-50 mr-auto" required>
+
+                    <legend class="col-form-label font-weight-bold">Priority</legend>
+                    <div class="form-check form-check-inline">
+                      <input class="highP form-check-input" type="radio" name="priority" id="priority" value="high">
+                    <label for="priority" class="form-check-label">High</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="mediumP form-check-input" type="radio" name="priority" id="priority" value="medium" checked required>
+                      <label for="priority" class="form-check-label">Medium</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                      <input class="lowP form-check-input" type="radio" name="priority" id="priority" value="low">
+                      <label for="priority" class="form-check-label">Low</label>
+                    </div>
+
+                    <button type="submit" id="submitTodo" class="btn btn-secondary mt-2">Add ToDo!</button>
+                    <button type="submit" id="editTodo" class="btn btn-secondary mt-2">Edit ToDo!</button>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="main.js"></script>
+</body>
+</html>
