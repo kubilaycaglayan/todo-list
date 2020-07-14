@@ -25,8 +25,6 @@ const events = function events() {
       closeModalButton.click();
       document.getElementById('projectForm').reset();
       dom().showProject();
-    } else {
-      window.alert('You need to fill the input field!');
     }
   }
 
@@ -51,8 +49,6 @@ const events = function events() {
       closeModalButton.click();
       document.getElementById('todoForm').reset();
       dom().showTodos(projectId);
-    } else {
-      window.alert('You missed fill up one or more fields!');
     }
   }
 
