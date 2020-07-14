@@ -17,13 +17,17 @@ import {
 const events = function events() {
   function createProjectProcedure() {
     const nameProject = document.getElementById('nameProject').value;
-    const ourStore = storage();
-    const newProject = createProject(nameProject);
-    ourStore.addProject(newProject);
-    const closeModalButton = document.getElementById('closeModalButton1');
-    closeModalButton.click();
-    document.getElementById('projectForm').reset();
-    dom().showProject();
+    if (nameProject !== '') {
+      const ourStore = storage();
+      const newProject = createProject(nameProject);
+      ourStore.addProject(newProject);
+      const closeModalButton = document.getElementById('closeModalButton1');
+      closeModalButton.click();
+      document.getElementById('projectForm').reset();
+      dom().showProject();
+    } else {
+      window.alert('You need to fill the input field!');
+    }
   }
 
   function getFormValues() {
@@ -38,14 +42,18 @@ const events = function events() {
 
   function createTodoProcedure() {
     const todoValues = getFormValues();
-    const newTodo = createToDoItem(todoValues[0], todoValues[1], todoValues[2], todoValues[3], todoValues[4]);
-    const projectId = document.getElementById('projectId').innerHTML;
-    const ourStore = storage();
-    ourStore.addTodo(projectId, newTodo);
-    const closeModalButton = document.getElementById('closeModalButton');
-    closeModalButton.click();
-    document.getElementById('todoForm').reset();
-    dom().showTodos(projectId);
+    if (!todoValues.includes('')) {
+      const newTodo = createToDoItem(todoValues[0], todoValues[1], todoValues[2], todoValues[3], todoValues[4]);
+      const projectId = document.getElementById('projectId').innerHTML;
+      const ourStore = storage();
+      ourStore.addTodo(projectId, newTodo);
+      const closeModalButton = document.getElementById('closeModalButton');
+      closeModalButton.click();
+      document.getElementById('todoForm').reset();
+      dom().showTodos(projectId);
+    } else {
+      window.alert('You missed fill up one or more fields!');
+    }
   }
 
   const editTodoProcedure = function editTodoProcedure() {
@@ -76,6 +84,7 @@ const events = function events() {
     location.reload();
     document.getElementById('projectForm').reset();
   };
+
 
   return {
     editTodoProcedure,

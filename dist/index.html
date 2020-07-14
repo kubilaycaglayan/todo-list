@@ -34,7 +34,7 @@
                 <div class="modal-body">
                   <form id="projectForm" action="javascript:void(0);">
                     <label for="nameProject" class="font-weight-bold">Project Name</label><br>
-                    <input type="text" id="nameProject" placeholder="Add a name to the project">
+                    <input type="text" id="nameProject" placeholder="Add a name to the project" required>
 
                     <button type="submit" id="submitProject" class="btn btn-secondary">Add Project!</button>
                   </form>
@@ -72,16 +72,16 @@
                 <div class="modal-body">
                   <form id="todoForm" action="javascript:void(0);">
                     <label for="titleTodo" class="font-weight-bold">Title</label>
-                    <input type="text" id="titleTodo" placeholder="Add a title to the Todo" class="form-control" >
+                    <input type="text" id="titleTodo" placeholder="Add a title to the Todo" class="form-control" required>
 
                     <label for="descriptionTodo" class="font-weight-bold">Description</label>
-                    <input type="text" id="descriptionTodo" placeholder="Add a description" class="form-control" >
+                    <input type="text" id="descriptionTodo" placeholder="Add a description" class="form-control" required>
 
                     <label for="notesTodo" class="font-weight-bold">Notes</label>
-                    <input type="text" id="notesTodo" placeholder="Add notes" class="form-control" >
+                    <input type="text" id="notesTodo" placeholder="Add notes" class="form-control" required>
 
                     <label for="dueDateTodo" class="font-weight-bold">Due Date</label>
-                    <input type="date" id="dueDateTodo" class="form-control w-50 mr-auto" >
+                    <input type="date" id="dueDateTodo" class="form-control w-50 mr-auto" required>
 
                     <legend class="col-form-label font-weight-bold">Priority</legend>
                     <div class="form-check form-check-inline">
@@ -89,7 +89,7 @@
                     <label for="priority" class="form-check-label">High</label>
                     </div>
                     <div class="form-check form-check-inline">
-                      <input class="mediumP form-check-input" type="radio" name="priority" id="priority" value="medium" checked>
+                      <input class="mediumP form-check-input" type="radio" name="priority" id="priority" value="medium" checked required>
                       <label for="priority" class="form-check-label">Medium</label>
                     </div>
                     <div class="form-check form-check-inline">
